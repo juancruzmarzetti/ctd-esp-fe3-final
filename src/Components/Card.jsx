@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Card = ({ name, username, id }) => {
 
   const addFav = ()=>{
