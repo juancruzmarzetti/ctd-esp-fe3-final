@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Contact from "./Routes/Contact";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './Routes/Home';
 import Detail from './Routes/Detail';
 import Favs from './Routes/Favs';
@@ -18,6 +18,7 @@ root.render(
           <Route path='contacto' element={<Contact/>}/>
           <Route path='dentista/:id' element={<Detail/>}/>
           <Route path='favs' element={<Favs/>}/>
+          <Route path='*' element={<Navigate to="/home" />} />
         </Route>
       </Routes>
     </BrowserRouter>
