@@ -8,8 +8,8 @@ const Navbar = () => {
   return (
     <nav>
       <ul>
-        <li><Link to="/home" >Home</Link></li>
-        <li><Link to="/contact" >Contact</Link></li>
+        <li><Link to="/" >Home</Link></li>
+        <li><Link to="/contacto" >Contact</Link></li>
         <li><Link to="/favs" >Favs</Link></li>
         <li><button>Change theme</button></li>
       </ul>

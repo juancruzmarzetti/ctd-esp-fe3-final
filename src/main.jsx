@@ -14,11 +14,11 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App/>}>
-          <Route path='home' element={<Home/>}/>
+          <Route index element={<Home/>}/>
           <Route path='contacto' element={<Contact/>}/>
           <Route path='dentista/:id' element={<Detail/>}/>
           <Route path='favs' element={<Favs/>}/>
-          <Route path='*' element={<Navigate to="/home" />} />
+          <Route path='*' element={<Navigate to="/home"/>} />
         </Route>
       </Routes>
     </BrowserRouter>
