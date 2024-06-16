@@ -35,11 +35,11 @@ const Form = () => {
   <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label for="name">Nombre completo</label>
+          <label>Nombre completo</label>
           <input type="text" name="text" placeholder="Nombre completo" onChange={handleName} required/>
         </div>
         <div>
-          <label for="email">Email</label>
+          <label>Email</label>
           <input type="email" name="email" placeholder="Email" onChange={handleEmail} required/>
         </div>
         <button type="submit">Enviar</button>

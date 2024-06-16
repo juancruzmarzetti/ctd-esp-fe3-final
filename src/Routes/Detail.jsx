@@ -6,6 +6,7 @@ import React from 'react'
 const Detail = () => {
  
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
+  
 
   return (
     <>
