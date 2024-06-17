@@ -12,14 +12,12 @@ const ContextProvider = ({ children }) => {
 
   const getFavsFromStorage = () => {
     const localFavs = localStorage.getItem("favs");
-    try{
-      return localFavs ? JSON.parse(localFavs) : [];
-    }catch(error){
-      console.error("Error parsing JSON from localStorage", error);
-       
-      return [];
-    }
-}
+    return localFavs ? JSON.parse(localFavs) : [];
+  }
+
+  const removeFavFromStorage = (id) => {
+    favDispatch({type: "DELETE_FAV", payload: id});
+  }
 
   const favInitialState = getFavsFromStorage();
   const [favState, favDispatch] = useReducer(favReducer, favInitialState);
@@ -42,7 +40,7 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage}}>
+    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage, removeFavFromStorage}}>
       {children}
     </ContextGlobal.Provider>
   );
