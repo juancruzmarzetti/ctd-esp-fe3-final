@@ -15,7 +15,7 @@ const Home = () => {
     <main className={state.theme} >
       <h1>Home</h1>
       <div className='card-grid'>
-        {state.data.map(dentist => (<Link key={dentist.id} to={`dentist/${dentist.id}`}><Card dentist={dentist}/></Link>))}
+        {state.data.map(dentist => (<Card key={dentist.id} dentist={dentist}/>))}
       </div>
     </main>
   )
