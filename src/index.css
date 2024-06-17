@@ -120,3 +120,12 @@ tr:nth-child(even) {
 .dark > a {
   color: white;
 }
+
+.light{
+  background-color: white;
+  color: black;
+}
+
+.light > a {
+  color: white;
+}

@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { favReducer, reducer } from "./reducer";
 
-const initialState = {theme: "", data: []}
+const initialState = {theme: "light", data: []}
 const ContextGlobal = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -13,6 +13,13 @@ const ContextProvider = ({ children }) => {
   const getFavsFromStorage = () => {
     const localFavs = localStorage.getItem("favs");
     return localFavs ? JSON.parse(localFavs) : [];
+  }
+  const changeTheme = () => {
+    if(state.theme === "light"){
+      dispatch({type: "CHANGE_THEME", payload: "dark"})
+    }else{
+      dispatch({type: "CHANGE_THEME", payload: "light"})
+    }
   }
 
   const removeFavFromStorage = (id) => {
@@ -40,7 +47,7 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage, removeFavFromStorage}}>
+    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage, removeFavFromStorage, changeTheme}}>
       {children}
     </ContextGlobal.Provider>
   );

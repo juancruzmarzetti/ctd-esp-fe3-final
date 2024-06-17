@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import { useContextGlobal } from '../Components/utils/global.context';
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 const Detail = ({}) => {
+  const {state} = useContextGlobal();
+
   
   const [dentist, setDentist] = useState({});
 
@@ -27,7 +30,7 @@ const Detail = ({}) => {
   }, [])
 
   return (
-    <>
+    <div className={state.theme}>
       <h1>Detail Dentist id </h1>
       <div>
         <h2>Name: {dentist.name}</h2>
@@ -36,7 +39,7 @@ const Detail = ({}) => {
         <p>Web: {dentist.website}</p>
       </div>
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-    </>
+    </div>
   )
 }
 
