@@ -10,10 +10,23 @@ const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const url = `https://jsonplaceholder.typicode.com/users`;
 
-  //favs localstorage
-  // TO DO
-  const favInitialState = [];
+  const getFavsFromStorage = () => {
+    const localFavs = localStorage.getItem("favs");
+    try{
+      return localFavs ? JSON.parse(localFavs) : [];
+    }catch(error){
+      console.error("Error parsing JSON from localStorage", error);
+       
+      return [];
+    }
+}
+
+  const favInitialState = getFavsFromStorage();
   const [favState, favDispatch] = useReducer(favReducer, favInitialState);
+
+  const setFavsInStorage = (fav) => {
+    favDispatch({type: "SAVE_FAV", payload: fav});
+  };
 
   const getData = async () => {
     try{
@@ -29,7 +42,7 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ContextGlobal.Provider value={{state, dispatch}}>
+    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage}}>
       {children}
     </ContextGlobal.Provider>
   );

@@ -10,9 +10,11 @@ export const reducer = (state, action) => {
 }
 
 export const favReducer = (favState, action) => {
-    switch(action.type){
-        case "GET_DENTIST":
-            return action.payload;
+    switch (action.type) {
+        case "SAVE_FAV":
+            const favItem = [...favState, action.payload];
+            localStorage.setItem("favs", JSON.stringify(favItem));  
+            return favItem;
         default:
             return favState;
     }
