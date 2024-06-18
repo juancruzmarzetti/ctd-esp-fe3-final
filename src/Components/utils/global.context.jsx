@@ -2,7 +2,10 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { favReducer, reducer } from "./reducer";
 
-const initialState = {theme: "light", data: []}
+const getNavStateFromStorage = () => JSON.parse(localStorage.getItem("navState")) || "Home";
+const getThemeStateFromStorage = () => JSON.parse(localStorage.getItem("theme")) || "light";
+
+const initialState = {theme: getThemeStateFromStorage(), data: [], navState: getNavStateFromStorage()}
 const ContextGlobal = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -14,6 +17,11 @@ const ContextProvider = ({ children }) => {
     const localFavs = localStorage.getItem("favs");
     return localFavs ? JSON.parse(localFavs) : [];
   }
+
+  const setNavState = (navPage) => {
+    dispatch({type: "SET_NAV_STATE", payload: navPage});
+  };
+
   const changeTheme = () => {
     if(state.theme === "light"){
       dispatch({type: "CHANGE_THEME", payload: "dark"})
@@ -47,7 +55,7 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage, removeFavFromStorage, changeTheme}}>
+    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage, removeFavFromStorage, changeTheme, setNavState}}>
       {children}
     </ContextGlobal.Provider>
   );

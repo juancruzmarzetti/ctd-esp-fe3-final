@@ -3,7 +3,11 @@ export const reducer = (state, action) => {
         case "GET_DENTISTS":
             return { ...state, data: action.payload}
         case "CHANGE_THEME":
+            localStorage.setItem("theme", JSON.stringify(action.payload))
             return {...state, theme: action.payload}
+        case "SET_NAV_STATE":
+            localStorage.setItem("navState", JSON.stringify(action.payload));
+            return {...state, navState: action.payload}
         default:
             return state;
     }

@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className={state.theme}>
         <p>Powered by</p>
-        <img src="../images/DH.png" alt='DH-logo' />
+        <img src="../images/DH.png" alt='DH-logo' className="h-10"/>
     </footer>
   )
 }
