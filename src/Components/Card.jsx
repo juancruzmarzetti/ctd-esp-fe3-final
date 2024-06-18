@@ -6,7 +6,7 @@ import ButtonRemoveFav from "./ButtonRemoveFav";
 
 const Card = ({ dentist }) => {
   const {name, username, id} = dentist;
-  const {setFavsInStorage, removeFavFromStorage} = useContextGlobal();
+  const {setFavsInStorage, removeFavFromStorage, setNavState} = useContextGlobal();
 
   const addFav = () => {
     setFavsInStorage(dentist);
@@ -17,23 +17,28 @@ const Card = ({ dentist }) => {
   // window.location.pathname
 
   return (
-    <div className="card">
-        <Link to={`dentist/${id}`}>
+    <div>
         {/* En cada card deberan mostrar en name - username y el id */}
-          { /*<img src="../images/doctor.jpg" alt="Imagen de doctor"/> */}
-          <h1>{name}</h1>
-          <p>Username: {username}</p>
-          <p>Id: {id}</p>
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-        </Link>
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        {window.location.pathname === "/home" ||
-        window.location.pathname === "/" &&
-        <ButtonAddFav addFav={addFav}/>}
-        {window.location.pathname === "/fav" &&
-          <ButtonRemoveFav removeFav={removeFav}/>
-        }
+        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+          <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />
+          <div className="px-6 py-4">
+            <Link to={`dentist/${id}`} onClick={() => setNavState(`dentist/${id}`)}>
+              <div className="font-bold text-xl mb-2">{name}</div>
+              <p className="text-gray-700 text-base">Username: {username}</p>
+              <p className="text-gray-700 text-base">Id: {id}</p>
+            </Link>
+            {window.location.pathname === "/home" ||
+              window.location.pathname === "/" &&
+              <ButtonAddFav addFav={addFav}/>}
+            {window.location.pathname === "/fav" &&
+              <ButtonRemoveFav removeFav={removeFav}/>
+            }
+          </div>
+        </div>
     </div>
+    
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card from "../Components/Card";
 import { useContextGlobal } from "../Components/utils/global.context";
 
@@ -6,6 +6,7 @@ import { useContextGlobal } from "../Components/utils/global.context";
 
 const Favs = () => {
   const {favState, state} = useContextGlobal();
+
 
   console.log(favState);
   return (
