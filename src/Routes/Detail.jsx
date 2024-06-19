@@ -30,14 +30,17 @@ const Detail = ({}) => {
   }, [])
 
   return (
-    <div className={state.theme}>
-      <h1>Detail Dentist id </h1>
-      <div>
-        <h2>Name: {dentist.name}</h2>
-        <p>Email: {dentist.email}</p>
-        <p>Phone: {dentist.phone}</p>
-        <p>Web: {dentist.website}</p>
-      </div>
+    <div className={`${state.theme} flex flex-col justify-center items-center`}>
+      <h1 className="font-bold text-xl pt-10">Detail Dentist {dentist.id} </h1>
+      <div className="max-w-sm rounded overflow-hidden shadow-lg mt-10">
+          <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />
+          <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2">Name: {dentist.name}</div>
+              <p className="text-gray-700 text-base">Email: {dentist.email}</p>
+              <p className="text-gray-700 text-base">Phone: {dentist.phone}</p>
+              <p className="text-gray-700 text-base">Web: {dentist.website}</p>
+          </div>
+        </div>
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
     </div>
   )

@@ -5,7 +5,7 @@ const Footer = () => {
   const {state} = useContextGlobal();
 
   return (
-    <footer className='mt-20'>
+    <footer className='pt-20 w-screen mr-0 ml-0 pl-0 pr-0'>
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className='flex justify-center items-center'>
             <a href="https://digitalhouse.com/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">

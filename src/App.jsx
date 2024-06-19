@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-      <div className="App">
+      <div className="App overflow-hidden">
           <Navbar/>
           <Outlet/>
           <Footer/>

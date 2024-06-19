@@ -27,7 +27,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`border-gray-200 ${state.theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
+    <nav className={`border-gray-200 ${state.theme === 'dark' ? 'bg-gray-800' : 'bg-white'} w-screen mr-0 ml-0 pl-0 pr-0`}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://digitalhouse.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="../images/DH.png" className="h-8" alt="Flowbite Logo" />
