@@ -63,9 +63,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li onClick={changeTheme}>
-              <button className={`block py-2 px-3 rounded md:p-0 ${state.theme === 'dark' ? 'text-white' : 'text-black'}`}>
-                Change Theme
-              </button>
+              <a className="block py-2 px-3 rounded md:p-0">
+                <img className='h-6 w-6' src={state.theme === 'dark' ? '../images/sun-emoji-iphone.webp' : '../images/moon-emoji-iphone.png'} alt="Theme Emoji" />
+              </a>
             </li>
           </ul>
         </div>
