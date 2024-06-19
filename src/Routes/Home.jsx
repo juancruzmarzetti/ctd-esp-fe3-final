@@ -14,7 +14,7 @@ const Home = () => {
   
 
   return (
-    <main className={` ${state.theme} w-screen` } >
+    <main className={` ${state.theme} w-screen pb-10` } >
       <h1 className="font-bold text-xl pt-10 pb-10">Home</h1>
       <div className='card-grid'>
         {state.data.map(dentist => (<Card key={dentist.id} dentist={dentist}/>))}

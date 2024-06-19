@@ -6,7 +6,7 @@ import ButtonRemoveFav from "./ButtonRemoveFav";
 
 const Card = ({ dentist }) => {
   const {name, username, id} = dentist;
-  const {setFavsInStorage, removeFavFromStorage, setNavState} = useContextGlobal();
+  const {setFavsInStorage, removeFavFromStorage, setNavState, state} = useContextGlobal();
 
   const addFav = () => {
     setFavsInStorage(dentist);
@@ -25,15 +25,15 @@ const Card = ({ dentist }) => {
           <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />
           <div className="px-6 py-4">
             <Link to={`dentist/${id}`} onClick={() => setNavState(`dentist/${id}`)}>
-              <div className="font-bold text-xl mb-2">{name}</div>
-              <p className="text-gray-700 text-base">Username: {username}</p>
-              <p className="text-gray-700 text-base">Id: {id}</p>
+              <div className={`font-bold text-xl mb-2 ${state.theme === "dark" && "text-white"}`}>{name}</div>
+              <p className={`text-base ${state.theme === "dark" ? "text-white" : "text-gray-700"}`}>Username: {username}</p>
+              <p className={`text-base ${state.theme === "dark" ? "text-white" : "text-gray-700"}`}>Id: {id}</p>
             </Link>
             {window.location.pathname === "/home" ||
               window.location.pathname === "/" &&
-              <ButtonAddFav addFav={addFav}/>}
+              <ButtonAddFav addFav={addFav} theme={state.theme}/>}
             {window.location.pathname === "/fav" &&
-              <ButtonRemoveFav removeFav={removeFav}/>
+              <ButtonRemoveFav removeFav={removeFav} theme={state.theme}/>
             }
           </div>
         </div>

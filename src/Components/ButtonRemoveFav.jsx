@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ButtonRemoveFav = ({removeFav}) => {
+const ButtonRemoveFav = ({removeFav, theme}) => {
   return (
-    <button onClick={removeFav} className="favButton">Remove fav</button>
+    <button onClick={removeFav} className={`favButton mt-5 ${theme === "dark" ? "bg-black" : "bg-gray-200"}`}>Remove fav</button>
   )
 }
 
