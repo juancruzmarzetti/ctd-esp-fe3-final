@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Message } from "./Message";
+import FormError from "./FormError";
 
 
 const Form = () => {
@@ -32,28 +34,49 @@ const Form = () => {
   }
 
   return (
-  <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre completo</label>
-          <input type="text" name="text" placeholder="Nombre completo" onChange={handleName} required/>
+    <div class="w-full max-w-xs h-64">
+    <form class="w-full max-w-sm" onSubmit={handleSubmit}>
+      <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+            Full Name
+          </label>
         </div>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" placeholder="Email" onChange={handleEmail} required/>
+        <div class="md:w-2/3">
+          <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="name" type="text" onChange={handleName} required/>
         </div>
-        <button type="submit">Enviar</button>
-      </form>
-      {
+      </div>
+      <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+          <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+            Email
+          </label>
+        </div>
+      <div class="md:w-2/3">
+        <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="emsail" type="email" onChange={handleEmail} required/>
+      </div>
+    </div>
+    <div class="md:flex md:items-center">
+      <div class="md:w-1/3"></div>
+        <div class="md:w-2/3">
+          <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+            Send
+          </button>
+        </div>
+      </div>
+    </form>
+    <div>
+    {
         validation && <>
-          <p>Gracias {user.name}, te contactaremos cuando antes vía mail</p>  
+          <Message user={user}/>
         </>
       }{
         showError && <>
-          <p>Por favor verifique su información nuevamente</p>
+          <FormError/>
         </>
       }
     </div>
+  </div>
   );
 };
 
