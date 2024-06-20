@@ -41,7 +41,7 @@ const Detail = ({}) => {
   }
 
   return (
-    <div className={`${state.theme} flex flex-col justify-center items-center`}>
+    <div className={`${state.theme === "dark" && "bg-gray-800"} flex flex-col justify-center items-center`}>
       <h1 className="font-bold text-xl pt-10">Detail Dentist {dentist.id} </h1>
       <div className="max-w-sm rounded overflow-hidden shadow-lg mt-10">
           <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />

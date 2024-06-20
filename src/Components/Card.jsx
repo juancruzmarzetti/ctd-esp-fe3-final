@@ -21,7 +21,7 @@ const Card = ({ dentist }) => {
         {/* En cada card deberan mostrar en name - username y el id */}
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <div className="max-w-sm rounded overflow-hidden shadow-lg">
+        <div className={`max-w-sm rounded overflow-hidden shadow-lg ${state.theme === "dark" && "bg-gray-800"}`}>
           <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />
           <div className="px-6 py-4">
             <Link to={`dentist/${id}`} onClick={() => setNavState(`dentist/${id}`)}>
