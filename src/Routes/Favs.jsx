@@ -10,11 +10,11 @@ const Favs = () => {
 
   console.log(favState);
   return (
-    <div className={state.theme}>
+    <div className={`${state.theme} pb-10`}>
       <h1 className="font-bold text-xl pt-10 pb-10">Dentists Favs</h1>
       <div className="card-grid">
         {favState.map((dentist) => (
-          <Card key={dentist.id} dentist={dentist}/>
+          <Card key={dentist.id} dentist={dentist} theme={state.theme}/>
         ))}
       </div>
     </div>

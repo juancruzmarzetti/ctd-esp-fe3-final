@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className={`border-gray-200 ${state.theme === 'dark' ? 'bg-gray-800' : 'bg-white'} w-screen mr-0 ml-0 pl-0 pr-0`}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="https://digitalhouse.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="../images/DH.png" className="h-8" alt="Flowbite Logo" />
+          <img src={`${state.theme === "dark" ? "../images/DHdarkmode.png" : "../images/DH.png"}`} className="h-8" alt="Flowbite Logo" />
         </a>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className={`font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg ${state.theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'} md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 ${state.theme === 'dark' ? 'md:bg-gray-800 dark:border-gray-700' : 'md:bg-white'}`}>

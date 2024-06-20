@@ -41,15 +41,15 @@ const Detail = ({}) => {
   }
 
   return (
-    <div className={`${state.theme === "dark" && "bg-gray-800"} flex flex-col justify-center items-center`}>
-      <h1 className="font-bold text-xl pt-10">Detail Dentist {dentist.id} </h1>
+    <div className={`${state.theme === "dark" && "bg-gray-800"} flex flex-col justify-center items-center pb-10`}>
+      <h1 className={`${state.theme === "dark" && "text-white"} font-bold text-xl pt-10`}>Detail Dentist {dentist.id} </h1>
       <div className="max-w-sm rounded overflow-hidden shadow-lg mt-10">
           <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />
           <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">Name: {dentist.name}</div>
-              <p className="text-gray-700 text-base">Email: {dentist.email}</p>
-              <p className="text-gray-700 text-base">Phone: {dentist.phone}</p>
-              <p className="text-gray-700 text-base">Web: {dentist.website}</p>
+              <div className={`font-bold text-xl mb-2 ${state.theme === "dark" && "text-white"}`}>Name: {dentist.name}</div>
+              <p className={`text-base ${state.theme === "dark" ? "text-white" : "text-gray-700"}`}>Email: {dentist.email}</p>
+              <p className={`text-base ${state.theme === "dark" ? "text-white" : "text-gray-700"}`}>Phone: {dentist.phone}</p>
+              <p className={`text-base ${state.theme === "dark" ? "text-white" : "text-gray-700"}`}>Web: {dentist.website}</p>
           </div>
         </div>
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
