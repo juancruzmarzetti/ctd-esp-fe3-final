@@ -7,7 +7,7 @@ import { useContextGlobal } from '../Components/utils/global.context';
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 const Detail = ({}) => {
   const {state} = useContextGlobal();
-
+  const [loading, setLoading] = useState(true);
   
   const [dentist, setDentist] = useState({});
 
@@ -20,14 +20,25 @@ const Detail = ({}) => {
     try{
       let res = await axios(url);
       setDentist(res.data);
+      setLoading(false);
     }catch(error){
       console.log(error);
+      setLoading(false)
     }
   }
 
   useEffect(() => {
     getDentist();
   }, [])
+
+  if(loading){
+    return (
+      <div className={`${state.theme} flex flex-col justify-center items-center`}>
+        <div className="spinner" />
+        <p>Loading...</p>
+      </div>
+    )
+  }
 
   return (
     <div className={`${state.theme} flex flex-col justify-center items-center`}>
