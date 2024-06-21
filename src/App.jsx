@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-      <div className="App overflow-hidden">
+      <div className="App overflow-hidden flex flex-col min-h-screen">
           <Navbar/>
           <Outlet/>
           <Footer/>

@@ -33,7 +33,7 @@ const Detail = ({}) => {
 
   if(loading){
     return (
-      <div className={`${state.theme} flex flex-col justify-center items-center`}>
+      <div className={`${state.theme} flex flex-col justify-center items-center flex-grow`}>
         <div className="spinner" />
         <p>Loading...</p>
       </div>
@@ -41,7 +41,7 @@ const Detail = ({}) => {
   }
 
   return (
-    <div className={`${state.theme === "dark" && "bg-gray-800"} flex flex-col justify-center items-center pb-10`}>
+    <div className={`${state.theme === "dark" && "bg-gray-800"} flex flex-col justify-center items-center pb-10 flex-grow`}>
       <h1 className={`${state.theme === "dark" && "text-white"} font-bold text-xl pt-10`}>Detail Dentist {dentist.id} </h1>
       <div className="max-w-sm rounded overflow-hidden shadow-lg mt-10">
           <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />

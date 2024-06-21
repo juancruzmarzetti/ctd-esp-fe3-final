@@ -9,7 +9,7 @@ const Favs = () => {
   const {favState, state, deleteAllFavsFromStorage} = useContextGlobal();
 
   return (
-    <div className={`${state.theme} pb-10 flex flex-col items-center justify-center`}>
+    <div className={`${state.theme} pb-10 flex flex-col items-center justify-center flex-grow`}>
       <h1 className="font-bold text-xl pt-10 pb-10">Dentists Favs</h1>
       <div className="card-grid">
         {favState.map((dentist) => (
