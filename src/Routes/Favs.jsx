@@ -18,7 +18,7 @@ const Favs = () => {
       </div>
       {favState.length >= 1 ?
       <ButtonDeleteAllFavs theme={state.theme} deleteAllFavsFromStorage={deleteAllFavsFromStorage}/> :
-      <p>La lista de favoritos está vacía</p>}
+      <p>The favorites list is empty</p>}
     </div>
   );
 };
