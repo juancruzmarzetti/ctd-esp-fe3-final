@@ -8,8 +8,6 @@ import ButtonDeleteAllFavs from "../Components/ButtonDeleteAllFavs";
 const Favs = () => {
   const {favState, state, deleteAllFavsFromStorage} = useContextGlobal();
 
-
-  console.log(favState);
   return (
     <div className={`${state.theme} pb-10 flex flex-col items-center justify-center`}>
       <h1 className="font-bold text-xl pt-10 pb-10">Dentists Favs</h1>
@@ -18,7 +16,9 @@ const Favs = () => {
           <Card key={dentist.id} dentist={dentist} theme={state.theme}/>
         ))}
       </div>
-      <ButtonDeleteAllFavs theme={state.theme} deleteAllFavsFromStorage={deleteAllFavsFromStorage}/>
+      {favState.length >= 1 ?
+      <ButtonDeleteAllFavs theme={state.theme} deleteAllFavsFromStorage={deleteAllFavsFromStorage}/> :
+      <p>La lista de favoritos está vacía</p>}
     </div>
   );
 };
