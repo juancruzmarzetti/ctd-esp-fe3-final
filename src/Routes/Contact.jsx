@@ -11,7 +11,7 @@ const Contact = () => {
     <div className={` ${state.theme} pb-20` } >
       <div className="w-screen flex flex-col items-center justify-center">
         <h2 className='font-bold text-xl pt-10'>Want to know more?</h2>
-        <p className='mb-10'>Send us your questions and we will contact you</p>
+        <p className='mb-20'>Send us your questions and we will contact you</p>
         <Form theme={state.theme}/>
       </div>
     </div>
