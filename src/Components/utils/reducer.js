@@ -42,6 +42,9 @@ export const favReducer = (favState, action) => {
             favItemDelete.splice(indexFindedById, 1);
             localStorage.setItem("favs", JSON.stringify(favItemDelete));  
             return favItemDelete;
+        case "DELETE_ALL_FAVS":
+            localStorage.removeItem("favs");
+            return [];
         default:
             return favState;
     }

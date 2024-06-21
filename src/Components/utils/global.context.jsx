@@ -34,6 +34,10 @@ const ContextProvider = ({ children }) => {
     favDispatch({type: "DELETE_FAV", payload: id});
   }
 
+  const deleteAllFavsFromStorage = () => {
+    favDispatch({type: "DELETE_ALL_FAVS"})
+  }
+
   const favInitialState = getFavsFromStorage();
   const [favState, favDispatch] = useReducer(favReducer, favInitialState);
 
@@ -55,7 +59,7 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage, removeFavFromStorage, changeTheme, setNavState}}>
+    <ContextGlobal.Provider value={{state, dispatch, favState, setFavsInStorage, removeFavFromStorage, changeTheme, setNavState, deleteAllFavsFromStorage}}>
       {children}
     </ContextGlobal.Provider>
   );
