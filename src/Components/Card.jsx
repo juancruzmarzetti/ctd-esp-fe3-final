@@ -31,7 +31,7 @@ const Card = ({ dentist, theme }) => {
   const renderButton = () => {
     const isFavedFlag = isFaved(id);
     const isHomePath = window.location.pathname === "/home" || window.location.pathname === "/";
-    const isFavPath = window.location.pathname === "/fav";
+    const isFavPath = window.location.pathname === "/favs";
 
     if(isFavedFlag && isHomePath){
       return <ButtonFaved theme={theme} />;

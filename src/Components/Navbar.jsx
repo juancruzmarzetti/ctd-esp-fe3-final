@@ -72,8 +72,8 @@ const Navbar = () => {
             <li>
               <Link 
                 to="/fav" 
-                onClick={() => { setNavState('/fav'); setIsMenuOpen(false); }}
-                className={getNavLinkClass('/fav')}
+                onClick={() => { setNavState('/favs'); setIsMenuOpen(false); }}
+                className={getNavLinkClass('/favs')}
               >
                 Favs
               </Link>

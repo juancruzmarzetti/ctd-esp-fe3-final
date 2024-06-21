@@ -19,7 +19,7 @@ root.render(
             <Route index element={<Home/>}/>
             <Route path='contact' element={<Contact/>}/>
             <Route path='dentist/:id' element={<Detail/>}/>
-            <Route path='fav' element={<Favs/>}/>
+            <Route path='favs' element={<Favs/>}/>
             <Route path='*' element={<Navigate to="/"/>} />
           </Route>
         </Routes>
