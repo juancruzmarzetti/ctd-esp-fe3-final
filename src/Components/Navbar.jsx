@@ -78,10 +78,22 @@ const Navbar = () => {
                 Favs
               </Link>
             </li>
-            <li onClick={changeTheme}>
-              <a className="block py-2 px-3 rounded md:p-0">
-                <img className='h-6 w-6' src={state.theme === 'dark' ? '../images/sun-emoji-iphone.webp' : '../images/moon-emoji-iphone.png'} alt="Theme Emoji" />
-              </a>
+            <li>
+              <div className="inline-flex items-center">
+                <div className="relative inline-block w-8 h-4 rounded-full cursor-pointer">
+                  <input id="auto-update" type="checkbox" onClick={changeTheme}
+                  className={`absolute w-8 h-4 transition-colors duration-300 rounded-full appearance-none cursor-pointer peer ${state.theme === 'dark' ? 'bg-white/30' : 'bg-black/30'} checked:bg-gray-900 peer-checked:before:bg-gray-900`}
+                  defaultChecked={state.theme === 'dark'} />
+                  <label htmlFor="auto-update"
+                  className={`before:content[''] absolute top-2/4 -left-1 h-5 w-5 -translate-y-2/4 cursor-pointer rounded-full border border-transparent ${state.theme === 'dark' ? 'bg-white' : 'bg-black'} shadow-md transition-all duration-300 peer-checked:translate-x-full peer-checked:${state.theme === 'dark' ? 'bg-white' : 'bg-black'}`}>
+                    <div className="inline-block p-5 rounded-full top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4"
+                    data-ripple-dark="true"></div>
+                  </label>
+                </div>
+                <label htmlFor="auto-update" className={`mt-px mb-0 ml-3 ${state.theme === "dark" ? "text-white" : "text-gray-700"} font-light cursor-pointer select-none`}>
+                  Dark mode
+                </label>
+              </div>
             </li>
           </ul>
         </div>
