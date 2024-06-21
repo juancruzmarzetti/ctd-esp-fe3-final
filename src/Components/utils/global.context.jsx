@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { favReducer, reducer } from "./reducer";
 
-const getNavStateFromStorage = () => JSON.parse(localStorage.getItem("navState")) || "Home";
+const getNavStateFromStorage = () => JSON.parse(localStorage.getItem("navState")) || "/";
 const getThemeStateFromStorage = () => JSON.parse(localStorage.getItem("theme")) || "light";
 
 const initialState = {theme: getThemeStateFromStorage(), data: [], navState: getNavStateFromStorage()}
