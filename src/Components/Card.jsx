@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/global.context";
 import ButtonAddFav from "./ButtonAddFav";
 import ButtonRemoveFav from "./ButtonRemoveFav";
+import ButtonFaved from "./ButtonFaved";
 
 const Card = ({ dentist, theme }) => {
   const {name, username, id} = dentist;
-  const {setFavsInStorage, removeFavFromStorage, setNavState} = useContextGlobal();
+  const {setFavsInStorage, removeFavFromStorage, setNavState, favState} = useContextGlobal();
 
   const addFav = () => {
     setFavsInStorage(dentist);
@@ -14,7 +15,32 @@ const Card = ({ dentist, theme }) => {
   const removeFav = () => {
     removeFavFromStorage(id);
   }
-  // window.location.pathname
+
+  const isFaved = (idCard) => {
+    let response = true;
+    const findById = (fav) => fav.id === idCard;
+    const indexFindedById = favState.findIndex(findById);
+    if(indexFindedById >= 0){
+      return response;
+    }else{
+      response = false;
+    }
+    return response;
+  }
+
+  const renderButton = () => {
+    const isFavedFlag = isFaved(id);
+    const isHomePath = window.location.pathname === "/home" || window.location.pathname === "/";
+    const isFavPath = window.location.pathname === "/fav";
+
+    if(isFavedFlag && isHomePath){
+      return <ButtonFaved theme={theme} />;
+    }else if (isHomePath){
+      return <ButtonAddFav addFav={addFav} theme={theme}/>;
+    }else if (isFavPath) {
+      return <ButtonRemoveFav removeFav={removeFav} theme={theme}/>;
+    }
+  }
 
   return (
     <div>
@@ -29,12 +55,7 @@ const Card = ({ dentist, theme }) => {
               <p className={`text-base ${theme === "dark" ? "text-white" : "text-gray-700"}`}>Username: {username}</p>
               <p className={`text-base ${theme === "dark" ? "text-white" : "text-gray-700"}`}>Id: {id}</p>
             </Link>
-            {window.location.pathname === "/home" ||
-              window.location.pathname === "/" &&
-              <ButtonAddFav addFav={addFav} theme={theme}/>}
-            {window.location.pathname === "/fav" &&
-              <ButtonRemoveFav removeFav={removeFav} theme={theme}/>
-            }
+            {renderButton()}
           </div>
         </div>
     </div>
