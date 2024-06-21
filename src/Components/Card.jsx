@@ -51,7 +51,7 @@ const Card = ({ dentist, theme }) => {
           <img className="w-full" src="../images/doctor.jpg" alt="Imagen de doctor" />
           <div className="px-6 py-4">
             <Link to={`dentist/${id}`} onClick={() => setNavState(`dentist/${id}`)}>
-              <div className={`font-bold text-xl mb-2 ${theme === "dark" && "text-white"}`}>{name}</div>
+              <div className={`font-bold text-xl mb-2 ${theme === "dark" && "text-white hover:underline"}`}>{name}</div>
               <p className={`text-base ${theme === "dark" ? "text-white" : "text-gray-700"}`}>Username: {username}</p>
               <p className={`text-base ${theme === "dark" ? "text-white" : "text-gray-700"}`}>Id: {id}</p>
             </Link>
